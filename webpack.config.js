@@ -84,7 +84,7 @@ module.exports = {
   devServer: {
     // port: 8081, // 端口号
     open: true, // 自动打开浏览器
-    quiet: true, // 不做太多日志输出
+    // quiet: true, // 不做太多日志输出
   },
   
   //解析 模块
