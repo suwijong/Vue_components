@@ -14,7 +14,7 @@
   export default {
       props:{
           todo:Object,
-          deleteTodo:Function
+         
       },
       data() {
           return {
@@ -36,7 +36,10 @@
 
           confirmDelete (){
               if (confirm('真的要删除吗?')) {
-                  this.deleteTodo(this.index)
+                //   this.deleteTodo(this.index)
+
+                //全局事件总线 发布
+                this.$eventBus.$emit('deleteTodo',this.index)
               }
           }
       }

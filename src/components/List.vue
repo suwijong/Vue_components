@@ -2,7 +2,7 @@
     <ul class="todo-main">
        <Item v-for="(todo, index) in todos" :key="todo.id"
          :todo = 'todo'  :index = 'index'
-         :deleteTodo = 'deleteTodo'
+        
        />
     </ul>
 </template>
@@ -13,7 +13,7 @@ import Item from './Item'
     //jieshou shuju 
     props:{
       todos:Array,
-      deleteTodo:Function
+     
     },
     components:{
       Item

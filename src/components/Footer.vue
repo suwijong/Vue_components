@@ -1,38 +1,28 @@
 <template>
  <div class="todo-footer">
         <label>
-          <input type="checkbox"  v-model="isCheckAll">
+          <!-- <input type="checkbox"  v-model="isCheckAll"> -->
+          <!-- 默认插槽 -->
+          <slot>
+             <h2>hello word</h2>  
+          </slot> 
         </label>
-        <span>
-          <span>{{completeSize}}</span> / 全部{{todos.length}}
-        </span>
-        <button class="btn btn-danger" v-show="completeSize > 0" @click="clearCompleteTodos">清除已完成任务</button>
+          <!-- 命名插槽 -->
+           <slot name="middle"></slot>
+        <!-- <span>
+          <span>已完成{{completeSize}}</span> / 全部{{todos.length}}
+        </span> -->
+
+          <slot name="right"></slot>
+        <!-- <button class="btn btn-danger" v-show="completeSize > 0" @click="clearCompleteTodos">清除已完成任务</button> -->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    props:{
-      todos:Array,
-      checkAllTodo:Function,
-      clearCompleteTodos:Function
-    },
+    
 
-    computed: {
-      completeSize() {
-        return this.todos.reduce((pre, todo) => pre + (todo.complete ? 1 : 0), 0)
-      },
-
-      isCheckAll :{
-        get (){
-           this.todos.length === this.completeSize && this.completeSize > 0
-        },
-
-        set (value){
-          this.checkAllTodo(value)
-        }
-      }
-    },
+    
   }
 </script>
 
