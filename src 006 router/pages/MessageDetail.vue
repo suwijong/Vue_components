@@ -1,8 +1,10 @@
 <template>
   <ul>
-    <li>ID:{{$route.params.mid}}</li>
+    <!-- <li>ID:{{$route.params.mid}}</li> -->
+    <li>ID:{{mid}}</li>
     <!-- <li>Title:{{detail.title}}</li> -->
     <li>Title:{{$route.query.title}}</li>
+    <!-- <li>Title:{{title}}</li> -->
     <li>Content:{{detail.content}}</li>
   </ul>
 </template>
@@ -15,6 +17,7 @@ const allDetails = [
   { id: 4, title: "message004", content: "这是内容0004" }
 ];
 export default {
+  props:['mid','title'],
   data() {
     return {
       detail: {}

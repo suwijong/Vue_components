@@ -21,8 +21,9 @@ module.exports = {
    
    //出口
    output:{
-    path:path.resolve('dist'),
-    filename:'bundle.js'
+    path:path.resolve('dist'),//所有打包生成文件的基础路径   dist 的绝对路径
+    filename:'bundle.js',//打包后的文件名
+    publicPath: '/',//引入打包文件时以'/'开头  打包后的引用路径左侧都会有一个'/'
    },
    //模块打包器
    module:{
@@ -42,7 +43,13 @@ module.exports = {
               options: {
                 presets: ['@babel/preset-env'], // 配置预设包(包含了多个ES语法解析的plugin包)
                 plugins: [ // 配置预设包之外的插件包
-    
+                  //针对于mint-ui  实现按需引入
+                  ["component", 
+                    {
+                      "libraryName": "mint-ui",
+                      "style": true //自动打包组件对应的样式
+                    }
+                  ]
                 ]
               }
             }
@@ -99,7 +106,10 @@ module.exports = {
       //   pathRewrite: {'^/3000' : ''}, // 在转发请求前去除路径中的/3000
       //   changeOrigin: true, // 支持协议名的跨域
       // },
-    }
+      
+    },
+    historyApiFallback:true,//任意的404响应都被替换为 index.html
+
   },
   
   //解析 模块

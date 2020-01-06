@@ -16,6 +16,8 @@
 
 <script type="text/ecmascript-6">
   export default {
+    //组件起名  有唯一的标识
+    name:'home'
   }
 </script>
 

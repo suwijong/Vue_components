@@ -13,6 +13,9 @@ Vue.use(VueRouter)
 
 //暴露路由器对象
 export default new VueRouter({
+
+    // mode:'hash',//默认模式 带#号的
+    mode:'history', //不带# 的模式
     //所有用到的路由
     routes:[
         {
@@ -36,7 +39,9 @@ export default new VueRouter({
                         {
                             path:'/home/message/detail/:mid',
                             component:MessageDetil,
-                            name:'detail'
+                            name:'detail',
+                            props:true,//props布尔值是将parmas参数映射成props
+                            // props:(route)=>({mid:route.params.mid,title:route.query.title})
                         }
                     ]
                 },
